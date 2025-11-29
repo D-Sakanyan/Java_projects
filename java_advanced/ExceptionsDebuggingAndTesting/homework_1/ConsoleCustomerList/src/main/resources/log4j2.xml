@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+    <Appenders>
+        <File name="QueryLog" fileName="${sys:user.dir}/ExceptionsDebuggingAndTesting/homework_1/ConsoleCustomerList/logs/queries.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="ErrorLog" fileName="${sys:user.dir}/ExceptionsDebuggingAndTesting/homework_1/ConsoleCustomerList/logs/errors.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="queryLogger" level="info" additivity="false">
+            <AppenderRef ref="QueryLog"/>
+        </Logger>
+
+        <Logger name="errorLogger" level="error" additivity="false">
+            <AppenderRef ref="ErrorLog"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="QueryLog"/>
+        </Root>
+    </Loggers>
+</Configuration>
